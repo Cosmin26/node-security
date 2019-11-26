@@ -15,7 +15,34 @@ In the .env file introduce your own variables for the database alongside other v
 docker build --network="node-security_app-network" -t=node-security .
 docker run --network="node-security_app-network" -p 8080:8080 node-security
 ```
+
+Then navigate to http://localhost:8080/graphql you will be able to interact with the console in order to use mutations and queries.
+
 The app runs in a network defined in the docker compose file in order for the docker containers to be able to comunicate easily.
+
+## Available operations for the graphql express server
+
+```graphql
+mutation {
+  signup(name: "cpruteanu", email:"pruteanu.cosmin26@gmail.com", password:"mumumu")
+}
+
+mutation {
+  login(email:"pruteanu.cosmin26@gmail.com", password:"mumumu") {jwtToken, refreshToken}
+}
+
+mutation {
+  refreshToken(refreshToken:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJlbWFpbCI6InBydXRlYW51LmNvc21pbjI2QGdtYWlsLmNvbSIsIm5hbWUiOiJjcHJ1dGVhbnUifSwiaWF0IjoxNTc0NzA0OTI1LCJleHAiOjE1NzUzMDk3MjV9.TRgT7-5gMctt4epqw6QOdrMHwIe3LDpcW5-ZEZpsmS4")
+}
+
+query {
+  me {
+    id
+    name
+    email
+  }
+}
+```
 
 ## Development Usage
 You need to make sure that the db_host and post is the ones that are mapped to your own machine. It works with localhost or 0.0.0.0.
