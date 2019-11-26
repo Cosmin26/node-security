@@ -24,15 +24,15 @@ The app runs in a network defined in the docker compose file in order for the do
 
 ```graphql
 mutation {
-  signup(name: "cpruteanu", email:"pruteanu.cosmin26@gmail.com", password:"mumumu")
+  signup(name: "cpruteanu", email:"node@security.com, password:"123456")
 }
 
 mutation {
-  login(email:"pruteanu.cosmin26@gmail.com", password:"mumumu") {jwtToken, refreshToken}
+  login(email:"node@security.com, password:"123456") {jwtToken, refreshToken}
 }
 
 mutation {
-  refreshToken(refreshToken:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjozLCJlbWFpbCI6InBydXRlYW51LmNvc21pbjI2QGdtYWlsLmNvbSIsIm5hbWUiOiJjcHJ1dGVhbnUifSwiaWF0IjoxNTc0NzA0OTI1LCJleHAiOjE1NzUzMDk3MjV9.TRgT7-5gMctt4epqw6QOdrMHwIe3LDpcW5-ZEZpsmS4")
+  refreshToken(refreshToken:"jwtTokenReceivedFromLogin")
 }
 
 query {
