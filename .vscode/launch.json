@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach",
+      "restart": true,
+      "port": 9229
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "name": "backend - nodemon",
+      "cwd": "${workspaceFolder}",
+      "restart": true,
+      "stopOnEntry": false,
+      "sourceMaps": true,
+      "showAsyncStacks": true,
+      "console": "internalConsole",
+      "internalConsoleOptions": "neverOpen",
+      "program": "${workspaceFolder}/src/index.js",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+      "runtimeArgs": ["--nolazy", "--exec", "${workspaceFolder}/node_modules/.bin/babel-node"],
+      "env": {
+        "BABEL_ENV": "development"
+      }
+    }
+  ]
+}

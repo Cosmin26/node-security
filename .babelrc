@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "debug": true
+      }
+    ]
+  ],
+  "env": {
+    "debug": {
+      "sourceMaps": true,
+      "retainLines": true
+    }
+  }
+}

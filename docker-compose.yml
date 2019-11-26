@@ -1,0 +1,22 @@
+version: "3"
+services:
+  db:
+    image: "postgres:11"
+    container_name: "node-security-db-container"
+    networks:
+      - app-network
+    ports:
+      - "5432:5432"
+    volumes:
+      - node_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: node-security
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  node_db:
+  node_modules:
